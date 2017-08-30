@@ -13,12 +13,11 @@ export default class MovieList extends Component {
   render() {
     console.log('hi ', this.props)
     const allMovies = this.props.data.map((movie, i) => {
-      return <div>{ movie.title }</div>
+      return <MovieCard key={ i } {...movie}/>
     })
 
     return (
       <div className='movie-list-container'>
-        Ummmm Hi guys
         { allMovies }
       </div>
     )
