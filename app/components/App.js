@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 // import Navigation from './Navigation/Navigation'
 import MovieList from './MovieList/MovieList'
+import MovieListContainer from '../containers/MovieListContainer'
 // import Movies from '../helpers/fetch'
-import cleanData from '../helpers/clean'
+// import cleanData from '../helpers/clean'
 import './app.css'
 
 
@@ -31,7 +32,7 @@ export default class App extends Component {
 
         </header>
         <div className='movie-container'>
-          <MovieList />
+          <MovieListContainer />
         </div>
       </div>
     )
