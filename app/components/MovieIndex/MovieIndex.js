@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MovieCard from '../MovieCard/MovieCard'
 
 export default class MovieIndex extends Component {
   constructor() {
@@ -8,7 +9,7 @@ export default class MovieIndex extends Component {
   render() {
     return (
       <div>
-      MOVIES
+        HI DAN AND RALPH HEY GUYS HIIII
       </div>
     )
   }
