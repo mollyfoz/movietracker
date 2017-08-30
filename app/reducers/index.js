@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import callAPI from './callAPI-reducer'
+import { movies } from './movies'
 
 const rootReducer = combineReducers({
-  callAPI
+  movies
 })
 
 export default rootReducer

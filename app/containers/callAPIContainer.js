@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { callAPIAction } from '../actions'
-import MovieIndex from '../components/MovieIndex/MovieIndex'
+import App from '../components/App'
 
 const mapStateToProps = (store) => {
   return {
@@ -10,10 +10,10 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleFavorite: (title, id, desc, score, image, date) => {
-      dispatch(callAPI(title, id, desc, score, image, date))
+    handleFavorite: (title, date, desc, image, id, score) => {
+      dispatch(callAPIAction(title, date, desc, image, id, score))
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
