@@ -5,9 +5,9 @@ export const moviesFetchDataSuccess = (movies) => {
   }
 }
 
-export const cleanData =(array) => {
+export const cleanData = (array) => {
   return array.map(movie => {
-    return{
+    return {
       movieId: movie.id,
       title: movie.title,
       date: movie.release_date,
@@ -51,6 +51,16 @@ export const createUser = (user) => {
   }
 }
 
+export const compareInput = (array, user) => {
+  return array.filter(obj => {
+    if (obj.email !== user.email) {
+      console.log('put a router in here idiots')
+    } else {
+      console.log('also route here my dudes')
+    }
+  })
+}
+
 export const checkUser = (user) => {
   return dispatch => {
     fetch('api/users', {
@@ -60,7 +70,7 @@ export const checkUser = (user) => {
       }
     })
     .then(data => data.json())
-    .then(object => object.data.filter(entry => entry !== user))
+    .then(object => compareInput(object.data, user))
     .then(response => console.log(response))
   }
 }
