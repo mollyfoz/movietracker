@@ -53,14 +53,14 @@ export const createUser = (user) => {
 
 export const checkUser = (user) => {
   return dispatch => {
-    fetch('api/users/new', {
-      method: 'POST',
-      body: JSON.stringify(user),
+    fetch('api/users', {
+      method: 'GET',
       headers: {
         'Content-Type' : 'application/json'
       }
     })
     .then(data => data.json())
+    .then(object => object.data.filter(entry => entry !== user))
     .then(response => console.log(response))
   }
 }
