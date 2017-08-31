@@ -1,7 +1,5 @@
-*, *::after, *::before {
+*{
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 .movie-cards {
@@ -11,8 +9,6 @@
   width: 300px;
   position: relative;
   margin: 25px;
-
-
 }
 
 .movie-img {
@@ -25,20 +21,35 @@
   z-index: -999;
 }
 
+.card-title-text {
+  margin-top: 75px;
+}
 
+.date-text, .score-text {
+  font-size: 20px;
+}
 
-.overlay:hover{
-  background-color:rgba(0,0,0,.6);
-  color:white;
-  position:absolute;
-  left:0;
-  top:0;
-  right:0;
-  bottom:0;
+.card-text {
+  margin: 50px 25px;
+  font-size: 16px;
+}
+
+.movie-cards:hover{
+  background-color:rgba(0,0,0,.8);
+  color: white;
   margin:auto;
   width:300px;
   height:500px;
-  transition:all .25s ease-in;
+  transition:all .2s ease-in;
   cursor: pointer;
   border-radius: 15px;
+}
+
+.text {
+  display: none;
+}
+
+
+.movie-cards:hover .text {
+  display: block;
 }
