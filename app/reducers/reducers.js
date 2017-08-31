@@ -11,12 +11,16 @@ export const movies = (state = [], action) => {
 const defaultState = {
   email: '',
   password: '',
+  name: '',
 }
 
 export const login = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return { email: action.email, password: action.password }
+      return {
+        name: action.name,
+        email: action.email,
+        password: action.password }
 
     default:
       return state
