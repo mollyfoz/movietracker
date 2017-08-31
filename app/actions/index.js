@@ -39,26 +39,28 @@ export const loginSuccess = (user) => {
 
 export const createUser = (user) => {
   return dispatch => {
-    fetch('http://localhost:3000/api/users/new', {
+    fetch('api/users/new', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
         'Content-Type' : 'application/json'
       }
     })
+    .then(data => data.json())
     .then(response => console.log(response))
   }
 }
 
 export const checkUser = (user) => {
   return dispatch => {
-    fetch('http://localhost:3000/api/users/new', {
+    fetch('api/users/new', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
         'Content-Type' : 'application/json'
       }
     })
+    .then(data => data.json())
     .then(response => console.log(response))
   }
 }
