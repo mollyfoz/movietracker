@@ -14,7 +14,7 @@ export const cleanData =(array) => {
       desc: movie.overview,
       score: movie.vote_average,
       image: movie.poster_path,
-      fav: false
+      fav: false,
     }
   })
 }
@@ -23,8 +23,42 @@ export const moviesFetchData = (url) => {
   return dispatch => {
     fetch(url)
       .then(response => response.json())
-      .then(object => cleanData(object.results))
+      .then(object => object.results)
+      .then(array => cleanData(array))
       .then(cleanArray => dispatch(moviesFetchDataSuccess(cleanArray)))
-      .catch(error => console.log('NOW YOU FUCKED UP ', error))
+      .catch(error => console.log('ERROR', error))
+  }
+}
+
+export const loginSuccess = (user) => {
+  return {
+    type: 'LOGIN_SUCCESS',
+    user
+  }
+}
+
+export const createUser = (user) => {
+  return dispatch => {
+    fetch('http://localhost:3000/api/users/new', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then(response => console.log(response))
+  }
+}
+
+export const checkUser = (user) => {
+  return dispatch => {
+    fetch('http://localhost:3000/api/users/new', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then(response => console.log(response))
   }
 }
