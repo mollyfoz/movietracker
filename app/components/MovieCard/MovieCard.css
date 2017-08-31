@@ -22,7 +22,7 @@
 }
 
 .card-title-text {
-  margin-top: 75px;
+  margin-top: 50px;
 }
 
 .date-text, .score-text {
@@ -30,7 +30,7 @@
 }
 
 .card-text {
-  margin: 50px 25px;
+  margin: 25px 25px;
   font-size: 16px;
 }
 
@@ -40,7 +40,7 @@
   margin:auto;
   width:300px;
   height:500px;
-  transition:all .2s ease-in;
+  transition:all .1s ease-in;
   cursor: pointer;
   border-radius: 15px;
 }
