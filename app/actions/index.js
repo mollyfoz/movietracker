@@ -5,11 +5,27 @@ export const moviesFetchDataSuccess = (movies) => {
   }
 }
 
+export const cleanData =(array) => {
+  return array.map(movie => {
+    return{
+      movieId: movie.id,
+      title: movie.title,
+      date: movie.release_date,
+      desc: movie.overview,
+      score: movie.vote_average,
+      image: movie.poster_path,
+      fav: false,
+    }
+  })
+}
+
 export const moviesFetchData = (url) => {
   return dispatch => {
     fetch(url)
       .then(response => response.json())
-      .then(data => dispatch(moviesFetchDataSuccess(data.results)))
+      .then(object => object.results)
+      .then(array => cleanData(array))
+      .then(cleanArray => dispatch(moviesFetchDataSuccess(cleanArray)))
       .catch(error => console.log('ERROR', error))
   }
 }
