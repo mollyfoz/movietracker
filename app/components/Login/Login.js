@@ -4,18 +4,16 @@ export default class Login extends Component {
   constructor() {
     super()
     this.state = {
-      email: '',
-      password: '',
       name: '',
-      disabled: true
+      email: '',
+      password: ''
     }
     this.grabValue = this.grabValue.bind(this)
   }
 
-  grabValue(inputField, e) {
+  grabValue(e) {
     this.setState({
-        [inputField]: e.target.value,
-        disabled: false
+        [e.target.title]: e.target.value,
     })
   }
 
@@ -24,25 +22,25 @@ export default class Login extends Component {
       <div>
         <form>
         <input
-          type="text" value={this.state.name}
+          title='name' type="text" value={this.state.name}
           placeholder="name"
-          onChange={(e) => this.grabValue('name', e)} />
+          onChange={(e) => this.grabValue(e)} />
           <input
-            type="email" value={this.state.email}
+            title='email' type="email" value={this.state.email}
             placeholder="email"
-            onChange={(e) => this.grabValue('email', e)} />
+            onChange={(e) => this.grabValue(e)} />
           <input
-            type="password"
+            title='password' type="password"
             placeholder="password"
-            onChange={(e) => this.grabValue('password', e)} />
+            onChange={(e) => this.grabValue(e)} />
           <button
-            disabled={ this.state.disabled }
+            // disabled={ this.state.disabled }
             onClick={ (e) => {
               e.preventDefault();
               this.props.submitLogin(this.state)
             }}>Log In</button>
           <button
-            disabled={ this.state.disabled }
+            // disabled={ this.state.disabled }
             onClick={ (e) => {
               e.preventDefault();
               this.props.addUser(this.state)
