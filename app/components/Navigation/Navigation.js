@@ -1,7 +1,6 @@
 import React from 'react'
-import Login from '../Login/Login'
+import LoginContainer from '../../containers/LoginContainer'
 // import { Route, NavLink } from 'react-router-dom'
-// import MovieList from '../MovieList/MovieList'
 
 
 const Navigation = () => {
@@ -9,7 +8,7 @@ const Navigation = () => {
   return (
     <div>
     Nav Goes Here
-    <Login />
+    <LoginContainer />
     </div>
   )
 }

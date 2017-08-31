@@ -7,7 +7,6 @@ export default class Login extends Component {
       email: '',
       password: '',
       disabled: true
-
     }
     this.grabValue = this.grabValue.bind(this)
   }
@@ -18,8 +17,6 @@ export default class Login extends Component {
       disabled: false
     })
   }
-
-
 
   render() {
     return(
