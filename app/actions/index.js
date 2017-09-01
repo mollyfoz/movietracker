@@ -64,15 +64,16 @@ export const createUser = (user) => {
 }
 
 export const compareInput = (array, user) => {
-  return array.filter(entry => {
+  console.log('d', array)
+  return array.reduce((acc, entry) => {
+    console.log('obj', acc[entry]);
     if (entry.email === user.email) {
-      console.log('put a router in here idiots')
-      return entry
+      return acc[entry]
     } else {
-      console.log('also route here my dudes')
-      return 'error'
+      return console.log('butts')
     }
-  })
+    return acc
+  }, {})
 }
 
 export const checkUser = (user) => {
@@ -85,13 +86,7 @@ export const checkUser = (user) => {
     })
     .then(data => data.json())
     .then(object => compareInput(object.data, user))
-    .then(user1 => console.log(user1))
-    // .then(user => {
-    //   if(user !== 'error'){
-    //     dispatch(loginSuccess(user))
-    //   }
-    //   else( dispatch(loginFail(user)))
-    // })
+    .then(object => console.log('user object', object))
 
   }
 }
