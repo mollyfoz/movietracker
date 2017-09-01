@@ -17,11 +17,16 @@ const defaultState = {
 export const login = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return {
-        name: action.name,
-        email: action.email,
-        password: action.password }
+      return action.user
 
+    default:
+      return state
+  }
+}
+
+export const loginFail = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'LOGIN_FAIL':
     default:
       return state
   }
