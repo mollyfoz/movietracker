@@ -42,12 +42,12 @@ export const loginSuccess = (user) => {
   }
 }
 
-export const loginFail = (user => {
+export const loginFail = (user) => {
   return {
     type: 'LOGIN_FAIL',
     user
   }
-})
+}
 
 export const createUser = (user) => {
   return dispatch => {
@@ -64,16 +64,8 @@ export const createUser = (user) => {
 }
 
 export const compareInput = (array, user) => {
-  console.log('d', array)
-  return array.reduce((acc, entry) => {
-    console.log('obj', acc[entry]);
-    if (entry.email === user.email) {
-      return acc[entry]
-    } else {
-      return console.log('butts')
-    }
-    return acc
-  }, {})
+  console.log('user', user)
+  return array.find(entry => entry.email === user.email)
 }
 
 export const checkUser = (user) => {
@@ -85,8 +77,10 @@ export const checkUser = (user) => {
       }
     })
     .then(data => data.json())
-    .then(object => compareInput(object.data, user))
-    .then(object => console.log('user object', object))
+    .then(object => console.log('user?',object.data, user))
+    // .then(object => compareInput(object.data, user))
+    // .then(validUser => loginSuccess(validUser))
+    // .catch(error => console.log('jax farts'))
 
   }
 }

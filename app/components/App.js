@@ -19,7 +19,7 @@ export default class App extends Component {
         <header>
           <NavLink to='/' className='nav'> Home </NavLink>
           <NavLink to='/login'className='nav'> Log In </NavLink>
-          <NavLink to='/profile' className='nav'> Profile </NavLink>
+          <NavLink to='/favorites' className='nav'> Favorites </NavLink>
         </header>
         <div className='movie-container'>
           <Route exact path='/' component={ MovieListContainer } />
