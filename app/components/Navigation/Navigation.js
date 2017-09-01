@@ -1,14 +1,13 @@
 import React from 'react'
+import App from '../App'
+import Login from '../Login/Login'
 import LoginContainer from '../../containers/LoginContainer'
-// import { Route, NavLink } from 'react-router-dom'
-
 
 const Navigation = () => {
 
   return (
     <div>
-    Nav Goes Here
-    <LoginContainer />
+      <LoginContainer />
     </div>
   )
 }

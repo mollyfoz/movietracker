@@ -1,3 +1,7 @@
+import { Route } from 'react-router-dom'
+import React from 'react'
+import Navigation from '../components/Navigation/Navigation'
+
 export const moviesFetchDataSuccess = (movies) => {
   return {
     type: 'MOVIES_FETCH_DATA_SUCCESS',
@@ -54,7 +58,9 @@ export const createUser = (user) => {
 export const compareInput = (array, user) => {
   return array.filter(obj => {
     if (obj.email !== user.email) {
-      console.log('put a router in here idiots')
+      <Route exact path='/login'
+                    component={ Navigation }
+      />
     } else {
       console.log('also route here my dudes')
     }
