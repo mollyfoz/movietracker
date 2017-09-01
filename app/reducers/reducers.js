@@ -26,3 +26,11 @@ export const login = (state = defaultState, action) => {
       return state
   }
 }
+
+export const loginFail = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'LOGIN_FAIL':
+    default:
+      return state
+  }
+}

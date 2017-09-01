@@ -1,3 +1,8 @@
+import { Route, Link } from 'react-router-dom';
+// import LoginContainer from '../containers/LoginContainer/'
+
+
+
 export const moviesFetchDataSuccess = (movies) => {
   return {
     type: 'MOVIES_FETCH_DATA_SUCCESS',
@@ -37,6 +42,13 @@ export const loginSuccess = (user) => {
   }
 }
 
+export const loginFail = (user => {
+  return {
+    type: 'LOGIN_FAIL',
+    user
+  }
+})
+
 export const createUser = (user) => {
   return dispatch => {
     fetch('api/users/new', {
@@ -52,11 +64,13 @@ export const createUser = (user) => {
 }
 
 export const compareInput = (array, user) => {
-  return array.filter(obj => {
-    if (obj.email !== user.email) {
+  return array.filter(entry => {
+    if (entry.email === user.email) {
       console.log('put a router in here idiots')
+      return entry
     } else {
       console.log('also route here my dudes')
+      return 'error'
     }
   })
 }
@@ -71,6 +85,13 @@ export const checkUser = (user) => {
     })
     .then(data => data.json())
     .then(object => compareInput(object.data, user))
-    .then(response => console.log(response))
+    .then(user1 => console.log(user1))
+    // .then(user => {
+    //   if(user !== 'error'){
+    //     dispatch(loginSuccess(user))
+    //   }
+    //   else( dispatch(loginFail(user)))
+    // })
+
   }
 }
