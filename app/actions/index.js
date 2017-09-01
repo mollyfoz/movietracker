@@ -38,14 +38,14 @@ export const moviesFetchData = (url) => {
 export const loginSuccess = (user) => {
   return {
     type: 'LOGIN_SUCCESS',
-    user
+    user: user
   }
 }
 
 export const loginFail = (user) => {
   return {
     type: 'LOGIN_FAIL',
-    user
+    user: user
   }
 }
 
@@ -64,7 +64,6 @@ export const createUser = (user) => {
 }
 
 export const compareInput = (array, user) => {
-  console.log('user', user)
   return array.find(entry => entry.email === user.email)
 }
 
@@ -77,10 +76,9 @@ export const checkUser = (user) => {
       }
     })
     .then(data => data.json())
-    .then(object => console.log('user?',object.data, user))
-    // .then(object => compareInput(object.data, user))
-    // .then(validUser => loginSuccess(validUser))
-    // .catch(error => console.log('jax farts'))
+    .then(object => compareInput(object.data, user))
+    .then(validUser => dispatch(loginSuccess(validUser)))
+    .catch(error => console.log('jax farts', error))
 
   }
 }
