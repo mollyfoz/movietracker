@@ -1,0 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
+.nav-wrapper {
+  border: 5px solid red;
+}
