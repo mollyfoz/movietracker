@@ -7,10 +7,9 @@ const Navigation = () => {
 
   return (
     <div>
-      <div className=" nav-wrapper">
-        <h1>MovieTracker</h1>
+      <h1 className='title'>MovieTracker</h1>
         <LoginContainer />
-      </div>
+
     </div>
   )
 }
