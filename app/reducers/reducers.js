@@ -12,17 +12,20 @@ const defaultState = {
   email: '',
   password: '',
   name: '',
+  loggedIn: false
 }
 
 export const login = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return action.user
+      return Object.assign({}, {user: action.user, loggedIn: action.loggedIn})
 
     default:
       return state
   }
 }
+
+
 
 export const loginFail = (state = defaultState, action) => {
   switch (action.type) {

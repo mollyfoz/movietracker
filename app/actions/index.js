@@ -35,17 +35,19 @@ export const moviesFetchData = (url) => {
   }
 }
 
-export const loginSuccess = (user) => {
+export const loginSuccess = (user, loggedIn) => {
   return {
     type: 'LOGIN_SUCCESS',
-    user: user
+    user,
+    loggedIn: true,
   }
 }
 
-export const loginFail = (user) => {
+export const loginFail = (user, loggedIn) => {
   return {
     type: 'LOGIN_FAIL',
-    user: user
+    user,
+    loggedIn: false
   }
 }
 
@@ -77,8 +79,9 @@ export const checkUser = (user) => {
     })
     .then(data => data.json())
     .then(object => compareInput(object.data, user))
-    .then(validUser => dispatch(loginSuccess(validUser)))
+    // .then(response => console.log('what', response.ok))
+    .then(validUser => dispatch(loginSuccess(validUser, validUser.ok)))
     .catch(error => console.log('jax farts', error))
-
   }
+
 }
