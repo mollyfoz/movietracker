@@ -4,12 +4,11 @@
 
 
  .movie-list-container {
-   top: 300px;
+  position: absolute;
+  top: 90px;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows:20% 20% 20% 20% 20%;
-
-
 }
 /*.col {
   flex: 1;

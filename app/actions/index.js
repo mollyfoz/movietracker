@@ -1,6 +1,6 @@
-import { Route } from 'react-router-dom'
-import React from 'react'
-import Navigation from '../components/Navigation/Navigation'
+import { Route, Link } from 'react-router-dom';
+
+
 
 export const moviesFetchDataSuccess = (movies) => {
   return {
@@ -41,6 +41,25 @@ export const loginSuccess = (user) => {
   }
 }
 
+export const loginFail = (user, loggedIn) => {
+  return {
+    type: 'LOGIN_FAIL',
+    user,
+    loggedIn: false
+  }
+}
+
+export const signOut = (user) => {
+  return {
+    type: 'SIGN_OUT',
+    user
+  }
+}
+
+// export const removeUser = (user) => {
+//   return dispatch => dispatch(signOut(user))
+// }
+
 export const createUser = (user) => {
   return dispatch => {
     fetch('api/users/new', {
@@ -51,32 +70,23 @@ export const createUser = (user) => {
       }
     })
     .then(data => data.json())
-    .then(response => console.log(response))
+    .then(response => response.status !== 'success' ? alert('Email already in use') : response.ok)
+    .then(validUser => dispatch(loginSuccess(user)))
+    .catch(error => console.log('you have fucked up now', error))
   }
-}
-
-export const compareInput = (array, user) => {
-  return array.filter(obj => {
-    if (obj.email !== user.email) {
-      <Route exact path='/login'
-                    component={ Navigation }
-      />
-    } else {
-      console.log('also route here my dudes')
-    }
-  })
 }
 
 export const checkUser = (user) => {
   return dispatch => {
     fetch('api/users', {
-      method: 'GET',
+      method: 'POST',
+      body: JSON.stringify(user),
       headers: {
         'Content-Type' : 'application/json'
       }
     })
     .then(data => data.json())
-    .then(object => compareInput(object.data, user))
-    .then(response => console.log(response))
+    .then(validUser => dispatch(loginSuccess(validUser)))
+    .catch(error => alert('email and password do not match'))
   }
 }

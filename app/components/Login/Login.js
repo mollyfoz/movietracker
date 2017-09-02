@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class Login extends Component {
   constructor() {
@@ -18,6 +19,10 @@ export default class Login extends Component {
   }
 
   render() {
+      if(this.props.loginInput.loggedIn) {
+        localStorage.setItem('user', (JSON.stringify(this.props.loginInput)))
+        return <Redirect to='/' />
+      }
     return(
       <div>
         <form>
@@ -25,30 +30,26 @@ export default class Login extends Component {
           title='name' type="text" value={this.state.name}
           placeholder="name"
           onChange={(e) => this.grabValue(e)} />
-          <input
-            title='email' type="email" value={this.state.email}
-            placeholder="email"
-            onChange={(e) => this.grabValue(e)} />
-          <input
-            title='password' type="password"
-            placeholder="password"
-            onChange={(e) => this.grabValue(e)} />
-          <button
+        <input
+          title='email' type="email" value={this.state.email}
+          placeholder="email"
+          onChange={(e) => this.grabValue(e)} />
+        <input
+          title='password' type="password"
+          placeholder="password"
+          onChange={(e) => this.grabValue(e)} />
+        <button className='form-button'
+          // disabled={ this.state.disabled }
+          onClick={ (e) => {
+            e.preventDefault();
+            this.props.submitLogin(this.state)}}>Log In</button>
+        <button className='form-button'
             // disabled={ this.state.disabled }
-            onClick={ (e) => {
-              e.preventDefault();
-              this.props.submitLogin(this.state)
-            }}>Log In</button>
-          <button
-            // disabled={ this.state.disabled }
-            onClick={ (e) => {
-              e.preventDefault();
-              this.props.addUser(this.state)
-            }}>
-            Create User</button>
+          onClick={ (e) => {
+            e.preventDefault();
+            this.props.addUser(this.state)}}>Create User</button>
         </form>
       </div>
     )
-
   }
 }

@@ -7,7 +7,8 @@ const Navigation = () => {
 
   return (
     <div>
-      <LoginContainer />
+      <h1 className='title'>MovieTracker</h1>
+        <LoginContainer />
     </div>
   )
 }

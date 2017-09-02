@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import MovieList from './components/MovieList/MovieList'
-import MovieListContainer from './containers/MovieListContainer'
-import rootReducer from './reducers'
-import { Provider } from 'react-redux'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import MovieList from './components/MovieList/MovieList';
+import MovieListContainer from './containers/MovieListContainer';
+import rootReducer from './reducers';
+import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import App from './components/App'
 import { BrowserRouter } from 'react-router-dom'
@@ -15,7 +15,7 @@ const store = configureStore(devTools)
 ReactDOM.render(
   <Provider store={ store }>
     <BrowserRouter>
-      <App />
+      <App store={store} />
     </BrowserRouter>
   </Provider>,
   document.getElementById('main')

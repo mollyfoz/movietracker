@@ -1,0 +1,19 @@
+*{
+  box-sizing: border-box;
+}
+
+.nav-wrapper {
+  border: 5px solid red;
+}
+
+header {
+  border: 5px solid blue;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+}
+
+.nav {
+  padding-right: 20px;
+  z-index: 2000;
+}
