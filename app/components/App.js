@@ -14,12 +14,14 @@ export default class App extends Component {
 
 
   render() {
+    console.log('dans props', this.props);
     return (
       <div>
         <header>
-          <NavLink to='/' className='nav nav-home'> Home </NavLink>
-          <NavLink to='/login'className='nav nav-login'> Log In </NavLink>
-          <NavLink to='/favorites' className='nav nav-favorites'> Favorites </NavLink>
+          <NavLink to='/' className='nav'> Home </NavLink>
+          <NavLink to='/login'className='nav'> Log In </NavLink>
+          <NavLink to='/signout'className='nav'> Sign Out </NavLink>
+          <NavLink to='/favorites' className='nav'> Favorites </NavLink>
         </header>
         <div className='movie-container'>
           <Route exact path='/' component={ MovieListContainer } />
