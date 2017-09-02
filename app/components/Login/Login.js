@@ -19,9 +19,8 @@ export default class Login extends Component {
   }
 
   render() {
-    let userArray = [];
       if(this.props.loginInput.loggedIn) {
-        localStorage.setItem('user', (JSON.stringify([...this.props.loginInput, ])))
+        localStorage.setItem('user', (JSON.stringify(this.props.loginInput)))
         return <Redirect to='/' />
       }
     return(

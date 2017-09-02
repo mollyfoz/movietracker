@@ -1,7 +1,7 @@
 import React from 'react'
+import App from '../App'
+import Login from '../Login/Login'
 import LoginContainer from '../../containers/LoginContainer'
-// import { Route, NavLink } from 'react-router-dom'
-
 
 const Navigation = () => {
 
@@ -9,7 +9,6 @@ const Navigation = () => {
     <div>
       <h1 className='title'>MovieTracker</h1>
         <LoginContainer />
-
     </div>
   )
 }
