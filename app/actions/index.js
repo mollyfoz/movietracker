@@ -75,7 +75,7 @@ export const checkUser = (user) => {
     })
     .then(data => data.json())
     .then(object => Object.assign({}, object.data, {password: 'Jack Farts', loggedIn: true}))
-    // .then(response => console.log('what', response))
+    // .then(response => localStorage.setItem('user',(JSON.stringify(response))))
     .then(validUser => dispatch(loginSuccess(validUser)))
     .catch(error => alert('email and password do not match'))
   }
