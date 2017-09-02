@@ -64,10 +64,6 @@ export const createUser = (user) => {
   }
 }
 
-export const compareInput = (array, user) => {
-  return array.find(entry => entry.email === user.email)
-}
-
 export const checkUser = (user) => {
   return dispatch => {
     fetch('api/users', {
@@ -81,7 +77,7 @@ export const checkUser = (user) => {
     .then(object => Object.assign({}, object.data, {password: 'Jack Farts', loggedIn: true}))
     // .then(response => console.log('what', response))
     .then(validUser => dispatch(loginSuccess(validUser)))
-    .catch(error => console.log('jax farts', error))
+    .catch(error => alert('email and password do not match'))
   }
 
 }

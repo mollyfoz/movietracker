@@ -14,11 +14,13 @@ export default class App extends Component {
 
 
   render() {
+    console.log('dans props', this.props);
     return (
       <div>
         <header>
           <NavLink to='/' className='nav'> Home </NavLink>
           <NavLink to='/login'className='nav'> Log In </NavLink>
+          <NavLink to='/signout'className='nav'> Sign Out </NavLink>
           <NavLink to='/favorites' className='nav'> Favorites </NavLink>
         </header>
         <div className='movie-container'>
