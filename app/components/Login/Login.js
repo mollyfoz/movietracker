@@ -33,12 +33,12 @@ export default class Login extends Component {
           title='password' type="password"
           placeholder="password"
           onChange={(e) => this.grabValue(e)} />
-        <button
+        <button className='form-button'
           // disabled={ this.state.disabled }
           onClick={ (e) => {
             e.preventDefault();
             this.props.submitLogin(this.state)}}>Log In</button>
-        <button
+        <button className='form-button'
             // disabled={ this.state.disabled }
           onClick={ (e) => {
             e.preventDefault();
