@@ -20,7 +20,7 @@ export default class Login extends Component {
 
   render() {
     if(this.props.loginInput.loggedIn) {
-      console.log(this.props.loginInput.loggedIn)
+      console.log(this.props.loginInput)
       return <Redirect to='/' />
     }
     return(

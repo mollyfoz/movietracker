@@ -35,11 +35,10 @@ export const moviesFetchData = (url) => {
   }
 }
 
-export const loginSuccess = (user, loggedIn) => {
+export const loginSuccess = (user) => {
   return {
     type: 'LOGIN_SUCCESS',
-    user,
-    loggedIn: true,
+    user
   }
 }
 
@@ -72,15 +71,16 @@ export const compareInput = (array, user) => {
 export const checkUser = (user) => {
   return dispatch => {
     fetch('api/users', {
-      method: 'GET',
+      method: 'POST',
+      body: JSON.stringify(user),
       headers: {
         'Content-Type' : 'application/json'
       }
     })
     .then(data => data.json())
-    .then(object => compareInput(object.data, user))
-    // .then(response => console.log('what', response.ok))
-    .then(validUser => dispatch(loginSuccess(validUser, validUser.ok)))
+    .then(object => Object.assign({}, object.data, {password: 'Jack Farts', loggedIn: true}))
+    // .then(response => console.log('what', response))
+    .then(validUser => dispatch(loginSuccess(validUser)))
     .catch(error => console.log('jax farts', error))
   }
 

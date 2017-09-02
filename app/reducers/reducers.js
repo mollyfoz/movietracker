@@ -12,13 +12,12 @@ const defaultState = {
   email: '',
   password: '',
   name: '',
-  loggedIn: false
 }
 
 export const login = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return Object.assign({}, {user: action.user, loggedIn: action.loggedIn})
+      return Object.assign({}, {user: action.user, loggedIn: action.user.loggedIn})
 
     default:
       return state
