@@ -50,6 +50,19 @@ export const loginFail = (user, loggedIn) => {
   }
 }
 
+export const signOut = (user) => {
+  return{
+    type: 'SIGN_OUT',
+    user,
+  }
+
+}
+
+export const signOutUser = (user) => {
+  return
+}
+
+
 export const createUser = (user) => {
   return dispatch => {
     fetch('api/users/new', {
@@ -74,10 +87,8 @@ export const checkUser = (user) => {
       }
     })
     .then(data => data.json())
-    .then(object => Object.assign({}, object.data, {password: 'Jack Farts', loggedIn: true}))
-    // .then(response => localStorage.setItem('user',(JSON.stringify(response))))
+    .then(object => Object.assign({}, object.data, {password: 'butts', loggedIn: true}))
     .then(validUser => dispatch(loginSuccess(validUser)))
     .catch(error => alert('email and password do not match'))
   }
-
 }
