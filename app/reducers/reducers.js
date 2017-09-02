@@ -11,29 +11,29 @@ export const movies = (state = [], action) => {
 const defaultState = {
   email: '',
   password: '',
-  name: '',
+  name: ''
 }
 
 export const login = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return action.user
-
-    default:
-      return state
-  }
-}
-
-export const signOut = (state = defaultState, action) => {
-  switch (action.type) {
+      return Object.assign({}, {user: action.user, loggedIn: true})
     case 'SIGN_OUT':
-      return action.user
-
+      return {}
     default:
       return state
   }
 }
 
+// export const signOut = (state = defaultState, action) => {
+//   switch (action.type) {
+//     case 'SIGN_OUT':
+//       return Object.assign({}, {user: '', loggedIn: false})
+//
+//     default:
+//       return state
+//   }
+// }
 
 export const loginFail = (state = defaultState, action) => {
   switch (action.type) {

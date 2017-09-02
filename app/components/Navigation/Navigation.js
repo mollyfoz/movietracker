@@ -1,7 +1,7 @@
 import React from 'react'
+import App from '../App'
+import Login from '../Login/Login'
 import LoginContainer from '../../containers/LoginContainer'
-// import { Route, NavLink } from 'react-router-dom'
-
 
 const Navigation = () => {
 
@@ -10,7 +10,6 @@ const Navigation = () => {
       <div className='logo-container'>
       <img src="app/components/Navigation/notflix.svg" alt=""/>
       </div>
-
     </div>
   )
 }

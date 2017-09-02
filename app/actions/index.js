@@ -1,5 +1,4 @@
 import { Route, Link } from 'react-router-dom';
-// import LoginContainer from '../containers/LoginContainer/'
 
 
 
@@ -51,17 +50,15 @@ export const loginFail = (user, loggedIn) => {
 }
 
 export const signOut = (user) => {
-  return{
+  return {
     type: 'SIGN_OUT',
-    user,
+    user
   }
-
 }
 
-export const signOutUser = (user) => {
-  return
-}
-
+// export const removeUser = (user) => {
+//   return dispatch => dispatch(signOut(user))
+// }
 
 export const createUser = (user) => {
   return dispatch => {
@@ -73,7 +70,9 @@ export const createUser = (user) => {
       }
     })
     .then(data => data.json())
-    .then(response => console.log(response))
+    .then(response => response.status !== 'success' ? alert('Email already in use') : response.ok)
+    .then(validUser => dispatch(loginSuccess(user)))
+    .catch(error => console.log('you have fucked up now', error))
   }
 }
 
@@ -87,7 +86,6 @@ export const checkUser = (user) => {
       }
     })
     .then(data => data.json())
-    .then(object => Object.assign({}, object.data, {password: 'butts', loggedIn: true}))
     .then(validUser => dispatch(loginSuccess(validUser)))
     .catch(error => alert('email and password do not match'))
   }

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Navigation from './Navigation/Navigation'
 import MovieListContainer from '../containers/MovieListContainer'
 import LoginContainer from '../containers/LoginContainer'
-
-import { Route, NavLink, Link } from 'react-router-dom';
+import AccountContainer from '../containers/AccountContainer'
 import './app.css'
+import { Route, NavLink, Link } from 'react-router-dom'
 
 
 export default class App extends Component {
@@ -18,10 +18,9 @@ export default class App extends Component {
     return (
       <div>
         <header>
-          <NavLink to='/' className='nav nav-home'> Home </NavLink>
-          <NavLink to='/login'className='nav nav-login'> Log In </NavLink>
-          <NavLink to='/signout'className='nav nav-signout'> Sign Out </NavLink>
-          <NavLink to='/favorites' className='nav nav-favorites'> Favorites </NavLink>
+          <NavLink to='/' className='nav'> Home </NavLink>
+          <NavLink to='/favorites' className='nav'> Favorites </NavLink>
+          <AccountContainer />
         </header>
         <div className='movie-container'>
           <Route exact path='/' component={ MovieListContainer } />
