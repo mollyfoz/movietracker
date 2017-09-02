@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class Login extends Component {
   constructor() {
@@ -18,6 +19,10 @@ export default class Login extends Component {
   }
 
   render() {
+    if(this.props.loginInput.loggedIn) {
+      console.log(this.props.loginInput.loggedIn)
+      return <Redirect to='/' />
+    }
     return(
       <div>
         <form>
