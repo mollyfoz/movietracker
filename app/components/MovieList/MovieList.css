@@ -5,11 +5,8 @@
 
  .movie-list-container {
   position: absolute;
-  top: 90px;
+  top: 200px;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows:20% 20% 20% 20% 20%;
 }
-/*.col {
-  flex: 1;
-}*/

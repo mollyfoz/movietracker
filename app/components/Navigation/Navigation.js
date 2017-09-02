@@ -7,8 +7,9 @@ const Navigation = () => {
 
   return (
     <div>
-      <h1 className='title'>MovieTracker</h1>
-        <LoginContainer />
+      <div className='logo-container'>
+      <img src="app/components/Navigation/notflix.svg" alt=""/>
+      </div>
     </div>
   )
 }

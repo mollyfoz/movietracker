@@ -34,19 +34,23 @@
 
 .card-title-text {
   margin-top: 50px;
+  text-align: center;
 }
 
 .date-text, .score-text {
   font-size: 20px;
+  text-align: center;
 }
 
 .card-text {
   margin: 25px 25px;
   font-size: 16px;
+  text-align: center;
 }
 
 .text {
   display: none;
+  text-align: center;
 }
 
 .movie-cards:hover .text {
