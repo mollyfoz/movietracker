@@ -9,6 +9,7 @@ const Navigation = () => {
     <div>
       <div className='logo-container'>
       <img src="app/components/Navigation/notflix.svg" alt=""/>
+      <LoginContainer />
       </div>
     </div>
   )
