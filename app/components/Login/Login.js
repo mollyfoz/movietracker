@@ -21,6 +21,8 @@ export default class Login extends Component {
   render() {
     if(this.props.loginInput.loggedIn) {
       localStorage.setItem('user', (JSON.stringify(this.props.loginInput)))
+      console.log(this.props.loginInput.user.data.id)
+      this.props.fetchFaves(this.props.loginInput.user.data.id)
       return <Redirect to='/' />
     }
     return(

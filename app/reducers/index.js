@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
-import { movies, login, loginFail } from './reducers'
+import { movies, login, loginFail, handleFaves } from './reducers'
 
 const rootReducer = combineReducers({
   movies,
   login,
-  loginFail
+  loginFail,
+  handleFaves
 })
 
 export default rootReducer
