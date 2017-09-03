@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation/Navigation'
+import MovieList from './MovieList/MovieList'
+import Favorites from './Favorites/Favorites'
 import MovieListContainer from '../containers/MovieListContainer'
 import LoginContainer from '../containers/LoginContainer'
 import AccountContainer from '../containers/AccountContainer'
@@ -24,10 +26,12 @@ export default class App extends Component {
           <AccountContainer />
         </header>
         <div className='movie-container'>
-          <Route exact path='/' component={ MovieListContainer } />
+          <Route exact path='/' component={ MovieList } />
           <Route exact path='/login' component={ Navigation } />
         </div>
       </div>
     )
   }
 }
+
+// <Route exact path='/favorites' component={ Favorites } />

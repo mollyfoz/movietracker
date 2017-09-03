@@ -1,24 +1,11 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const MovieCard = ({ id, title, release_date, overview, vote_average, poster_path, fav, user, faveHandle }) => {
 
-let movie = {
-  movie_id: id,
-  title,
-  release_date,
-  overview,
-  vote_average,
-  poster_path,
-  fav
-}
-
-
-if(user){
-  movie = {
+  let movie = {
     movie_id: id,
-    user_id: user.data.id,
     title,
     release_date,
     overview,
@@ -26,14 +13,33 @@ if(user){
     poster_path,
     fav
   }
-}
+
+
+  if (user){
+    movie = {
+      movie_id: id,
+      user_id: user.data.id,
+      title,
+      release_date,
+      overview,
+      vote_average,
+      poster_path,
+      fav
+    }
+  }
 
   return (
     <div
      className='movie-cards'>
-      <button onClick={ (e) => {
-        console.log(movie)
-        faveHandle(movie) } }>favorite</button>
+     {
+       (user) && <button onClick={ (e) => {
+         faveHandle(movie) } }>favorite</button>
+     }
+
+     {
+       (!user) && <Link className='button-link' to='/login'>favorite</Link>
+     }
+
       <h2 className='card-title-text text' >{ title }</h2>
       <p className='date-text text'>{ release_date }</p>
       <p className='card-text text'>{ overview }</p>

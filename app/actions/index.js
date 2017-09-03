@@ -28,8 +28,6 @@ export const moviesFetchData = (url) => {
     fetch(url)
       .then(response => response.json())
       .then(object => object.results)
-      // .then( thing => console.log('thing', thing))
-      // .then(array => cleanData(array))
       .then(cleanArray => dispatch(moviesFetchDataSuccess(cleanArray)))
       .catch(error => console.log('ERROR', error))
   }
@@ -89,11 +87,6 @@ export const checkUser = (user) => {
   }
 }
 
-
-// export const handleFaves = (fave) => {
-//   if ()
-// }
-
 export const fetchFaves = (favorites) => {
   return {
     type: 'FAVES_SUCCESS',
@@ -101,17 +94,11 @@ export const fetchFaves = (favorites) => {
   }
 }
 
-export const getFaves = (fave) => {
+export const getFaves = (id) => {
   return dispatch => {
-    fetch('api/users/:id/favorites', {
-      method: 'GET',
-      body: JSON.stringify(fave),
-      headers: {
-        'Content-Type' : 'application/json'
-      }
-    })
+    fetch(`api/users/${id}/favorites`)
     .then(data => data.json())
-    .then(receivedFaves => dispatch(fetchFaves(receivedFaves)))
+    .then(receivedFaves => dispatch(fetchFaves(receivedFaves.data)))
     .catch(error => alert('I didnt get anything :(' ))
   }
 }
@@ -147,7 +134,7 @@ export const removeFaves = (movies) => {
 
 export const deleteFaves = (fave) => {
   return dispatch => {
-    fetch('/users/:id/favorites/:movie_id', {
+    fetch('api/users/:id/favorites/:movie_id', {
       method: 'DELETE',
       body: JSON.stringify(fave),
       headers: {
