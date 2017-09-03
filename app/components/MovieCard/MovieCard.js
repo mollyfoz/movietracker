@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MovieListContainer from '../../containers/MovieListContainer'
 
 
-const MovieCard = ({ id, title, release_date, overview, vote_average, poster_path, fav, user, faveHandle }) => {
+export const MovieCard = ({ id, title, release_date, overview, vote_average, poster_path, fav, user, faveHandle, faves, checkFaves }) => {
 
   let movie = {
     movie_id: id,
@@ -15,7 +16,7 @@ const MovieCard = ({ id, title, release_date, overview, vote_average, poster_pat
   }
 
 
-  if (user){
+  if (user) {
     movie = {
       movie_id: id,
       user_id: user.data.id,
@@ -28,12 +29,15 @@ const MovieCard = ({ id, title, release_date, overview, vote_average, poster_pat
     }
   }
 
+  let favedButton = fav ? 'Remove' : 'Favorite'
+
   return (
+
     <div
      className='movie-cards'>
      {
-       (user) && <button onClick={ (e) => {
-         faveHandle(movie) } }>Favorite</button>
+       (user) && <button onClick={ () => {
+         checkFaves(movie) } }>{ favedButton }</button>
      }
 
      {
@@ -49,4 +53,4 @@ const MovieCard = ({ id, title, release_date, overview, vote_average, poster_pat
   )
 }
 
-export default MovieCard;
+export default MovieListContainer(MovieCard);

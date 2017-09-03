@@ -15,14 +15,22 @@ export class MovieList extends Component {
    }
   }
 
-
+  checkFaves(movie) {
+    if (movie.fav) {
+      this.props.removeFaves(movie)
+      movie.fav = false
+    } else {
+      this.props.addFaves(movie)
+      movie.fav = true
+    }
+  }
 
   render() {
 
     const { data, faves, favorites } = this.props
     const moviesArray = favorites ? faves : data
     const allMovies = moviesArray.map((movie, i) => {
-      return <MovieCardContainer key={ i } {...movie} />
+      return <MovieCard key={ i } {...movie} checkFaves={ this.checkFaves.bind(this)}/>
     })
 
     return (
