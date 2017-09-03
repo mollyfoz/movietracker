@@ -6,7 +6,7 @@ const MovieCard = ({ id, title, date, desc, score, image, fav }) => {
   return (
     <div
      className='movie-cards'>
-      <button>favorite</button>
+      <button className='favorite-button'>favorite</button>
       <h2 className='card-title-text text' >{ title }</h2>
       <p className='date-text text'>{ date }</p>
       <p className='card-text text'>{ desc }</p>

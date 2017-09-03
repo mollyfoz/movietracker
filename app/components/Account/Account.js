@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Account = (props) => {
 
   return (
-    <div className='account'>
+    <div className='account nav'>
       {
         (props.loginInput.loggedIn) && <Link className='sign-out' to='/' onClick={ () => {this.props.signOutUser()} }> Sign Out</Link>
       }
