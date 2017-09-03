@@ -36,6 +36,9 @@ export const loginFail = (state = defaultState, action) => {
 export const handleFaves = (state = [], action) => {
   switch(action.type) {
     case 'SENT_FAVE':
-      return action.data
+      return action.movies
+
+    default:
+      return state
   }
 }

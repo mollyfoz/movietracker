@@ -6,11 +6,19 @@ const Account = (props) => {
   return (
     <div className='account nav'>
       {
-        (props.loginInput.loggedIn) && <Link className='sign-out' to='/' onClick={ () => {this.props.signOutUser()} }> Sign Out</Link>
+        (props.loginInput.loggedIn) &&
+        <Link className='sign-out'
+          to='/'
+          onClick={ () => {this.props.signOutUser()} }>
+          Sign Out
+        </Link>
       }
 
       {
-        (!props.loginInput.loggedIn) && <Link className='login' to='/login'> Log In</Link>
+        (!props.loginInput.loggedIn) &&
+        <Link className='login' to='/login'>
+          Log In
+        </Link>
       }
 
     </div>

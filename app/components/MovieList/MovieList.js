@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MovieCard from '../MovieCard/MovieCard'
+import MovieCardContainer from '../../containers/MovieCardContainer'
 
 export default class MovieList extends Component {
 
@@ -10,7 +11,7 @@ export default class MovieList extends Component {
   render() {
 
     const allMovies = this.props.data.map((movie, i) => {
-      return <MovieCard key={ i } {...movie}/>
+      return <MovieCardContainer key={ i } {...movie} />
     })
 
     return (
