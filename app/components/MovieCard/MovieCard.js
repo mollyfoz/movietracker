@@ -33,11 +33,11 @@ const MovieCard = ({ id, title, release_date, overview, vote_average, poster_pat
      className='movie-cards'>
      {
        (user) && <button onClick={ (e) => {
-         faveHandle(movie) } }>favorite</button>
+         faveHandle(movie) } }>Favorite</button>
      }
 
      {
-       (!user) && <Link className='button-link' to='/login'>favorite</Link>
+       (!user) && <Link className='button-link' to='/login'>Favorite</Link>
      }
 
       <h2 className='card-title-text text' >{ title }</h2>
