@@ -14,15 +14,15 @@ export default class Login extends Component {
 
   grabValue(e) {
     this.setState({
-        [e.target.title]: e.target.value,
+        [e.target.title]: e.target.value
     })
   }
 
   render() {
-      if(this.props.loginInput.loggedIn) {
-        localStorage.setItem('user', (JSON.stringify(this.props.loginInput)))
-        return <Redirect to='/' />
-      }
+    if(this.props.loginInput.loggedIn) {
+      localStorage.setItem('user', (JSON.stringify(this.props.loginInput)))
+      return <Redirect to='/' />
+    }
     return(
       <div>
         <form>

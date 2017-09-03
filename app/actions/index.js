@@ -56,10 +56,6 @@ export const signOut = (user) => {
   }
 }
 
-// export const removeUser = (user) => {
-//   return dispatch => dispatch(signOut(user))
-// }
-
 export const createUser = (user) => {
   return dispatch => {
     fetch('api/users/new', {
@@ -88,5 +84,71 @@ export const checkUser = (user) => {
     .then(data => data.json())
     .then(validUser => dispatch(loginSuccess(validUser)))
     .catch(error => alert('email and password do not match'))
+  }
+}
+
+export const sendFaves = (movies) => {
+  return {
+    type: 'SENT_FAVE',
+    movies
+  }
+}
+
+export const addFaves = (fave) => {
+  return dispatch => {
+    fetch('/users/favorites/new', {
+      method: 'POST',
+      body: JSON.stringify(fave),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then(data => data.json())
+    .then(validFave => dispatch(sendFaves(validFave)))
+    .catch(error => alert('That movie has already been favorited!'))
+  }
+}
+
+export const removeFaves = (movies) => {
+  return {
+    type: 'FAVES_DELETE',
+    movies
+  }
+}
+
+export const deleteFaves = (fave) => {
+  return dispatch => {
+    fetch('/users/:id/favorites/:movie_id', {
+      method: 'DELETE',
+      body: JSON.stringify(fave),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then(data => data.json())
+    .then(removedFave => dispatch(removeFaves(removedFave)))
+    .catch(error => alert('I cant delete that, Dave'))
+  }
+}
+
+export const fetchFaves = (movies) => {
+  return {
+    type: 'FAVES_SUCCESS',
+    movies
+  }
+}
+
+export const getFaves = (fave) => {
+  return dispatch => {
+    fetch('/users/:id/favorites', {
+      method: 'GET',
+      body: JSON.stringify(fave),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then(data => data.json())
+    .then(receivedFaves => dispatch(fetchFaves(receivedFaves)))
+    .catch(error => alert('I didnt get anything :(' ))
   }
 }
