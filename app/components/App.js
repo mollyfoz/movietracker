@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Login from './Login/Login'
 import MovieList from './MovieList/MovieList'
-// import MovieListContainer from '../containers/MovieListContainer'
-// import LoginContainer from '../containers/LoginContainer'
 import AccountContainer from '../containers/AccountContainer'
 import './app.css'
 import { Route, NavLink, Link } from 'react-router-dom'
