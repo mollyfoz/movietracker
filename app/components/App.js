@@ -16,6 +16,8 @@ export default class App extends Component {
 
     return (
       <div>
+    <h1 className='notflix'>Notflix</h1>
+
         <header>
           <NavLink to='/' className='nav'> Home </NavLink>
           <NavLink to='/favorites' className='nav'> Favorites </NavLink>
