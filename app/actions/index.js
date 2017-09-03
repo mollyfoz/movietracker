@@ -9,26 +9,27 @@ export const moviesFetchDataSuccess = (movies) => {
   }
 }
 
-export const cleanData = (array) => {
-  return array.map(movie => {
-    return {
-      movieId: movie.id,
-      title: movie.title,
-      date: movie.release_date,
-      desc: movie.overview,
-      score: movie.vote_average,
-      image: movie.poster_path,
-      fav: false,
-    }
-  })
-}
+// export const cleanData = (array) => {
+//   return array.map(movie => {
+//     return {
+//       movieId: movie.id,
+//       title: movie.title,
+//       date: movie.release_date,
+//       desc: movie.overview,
+//       score: movie.vote_average,
+//       image: movie.poster_path,
+//       fav: false,
+//     }
+//   })
+// }
 
 export const moviesFetchData = (url) => {
   return dispatch => {
     fetch(url)
       .then(response => response.json())
       .then(object => object.results)
-      .then(array => cleanData(array))
+      // .then( thing => console.log('thing', thing))
+      // .then(array => cleanData(array))
       .then(cleanArray => dispatch(moviesFetchDataSuccess(cleanArray)))
       .catch(error => console.log('ERROR', error))
   }
@@ -83,7 +84,35 @@ export const checkUser = (user) => {
     })
     .then(data => data.json())
     .then(validUser => dispatch(loginSuccess(validUser)))
+    .then(receivedFaves => dispatch(fetchFaves(receivedFaves)))
     .catch(error => alert('email and password do not match'))
+  }
+}
+
+
+// export const handleFaves = (fave) => {
+//   if ()
+// }
+
+export const fetchFaves = (favorites) => {
+  return {
+    type: 'FAVES_SUCCESS',
+    favorites
+  }
+}
+
+export const getFaves = (fave) => {
+  return dispatch => {
+    fetch('api/users/:id/favorites', {
+      method: 'GET',
+      body: JSON.stringify(fave),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then(data => data.json())
+    .then(receivedFaves => dispatch(fetchFaves(receivedFaves)))
+    .catch(error => alert('I didnt get anything :(' ))
   }
 }
 
@@ -96,7 +125,7 @@ export const sendFaves = (movies) => {
 
 export const addFaves = (fave) => {
   return dispatch => {
-    fetch('/users/favorites/new', {
+    fetch('api/users/favorites/new', {
       method: 'POST',
       body: JSON.stringify(fave),
       headers: {
@@ -128,27 +157,5 @@ export const deleteFaves = (fave) => {
     .then(data => data.json())
     .then(removedFave => dispatch(removeFaves(removedFave)))
     .catch(error => alert('I cant delete that, Dave'))
-  }
-}
-
-export const fetchFaves = (movies) => {
-  return {
-    type: 'FAVES_SUCCESS',
-    movies
-  }
-}
-
-export const getFaves = (fave) => {
-  return dispatch => {
-    fetch('/users/:id/favorites', {
-      method: 'GET',
-      body: JSON.stringify(fave),
-      headers: {
-        'Content-Type' : 'application/json'
-      }
-    })
-    .then(data => data.json())
-    .then(receivedFaves => dispatch(fetchFaves(receivedFaves)))
-    .catch(error => alert('I didnt get anything :(' ))
   }
 }
