@@ -1,17 +1,20 @@
 import { connect } from 'react-redux'
-import { moviesFetchData, getFaves } from '../actions/index'
+import { moviesFetchData, getFaves, checkUser, createUser } from '../actions/index'
 import MovieList from '../components/MovieList/MovieList'
 
 const mapStateToProps = (store) => {
     return {
         data: store.movies,
-        faves: store.favorites,
-        userId: store.login.user
+        faves: store.handleFaves,
+        userId: store.login.user,
+        loginInput: store.login,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        submitLogin: (user) => dispatch(checkUser(user)),
+        addUser: (user) => dispatch(createUser(user)),
         fetchData: (url) => dispatch(moviesFetchData(url)),
         fetchFaves: (id) => dispatch(getFaves(id))
     }
