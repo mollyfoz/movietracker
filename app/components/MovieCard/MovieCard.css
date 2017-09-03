@@ -17,7 +17,7 @@
   color: white;
   width: 300px;
   height: 500px;
-  transition: all 1s ease-in;
+  transition: all .2s ease-in;
   cursor: pointer;
   border-radius: 15px;
 }
@@ -56,8 +56,21 @@
   display: block;
 }
 
-.favorite-button {
+.favorite-button, .button-link {
   position: absolute;
   right: 20px;
   top: 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 60px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+.favorite-button:hover, .button-link:hover {
+box-shadow: 0 0 8px red;
+color: red;
+
 }
