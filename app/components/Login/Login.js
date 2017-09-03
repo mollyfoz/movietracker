@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import MovieListContainer from '../../containers/MovieListContainer'
 
-export default class Login extends Component {
+
+export class Login extends Component {
   constructor() {
     super()
     this.state = {
@@ -21,10 +23,9 @@ export default class Login extends Component {
   render() {
     if(this.props.loginInput.loggedIn) {
       localStorage.setItem('user', (JSON.stringify(this.props.loginInput)))
-      console.log(this.props.loginInput.user.data.id)
-      this.props.fetchFaves(this.props.loginInput.user.data.id)
       return <Redirect to='/' />
     }
+
     return(
       <div>
         <form>
@@ -41,12 +42,10 @@ export default class Login extends Component {
           placeholder="password"
           onChange={(e) => this.grabValue(e)} />
         <button className='form-button'
-          // disabled={ this.state.disabled }
           onClick={ (e) => {
             e.preventDefault();
             this.props.submitLogin(this.state)}}>Log In</button>
         <button className='form-button'
-            // disabled={ this.state.disabled }
           onClick={ (e) => {
             e.preventDefault();
             this.props.addUser(this.state)}}>Create User</button>
@@ -55,3 +54,5 @@ export default class Login extends Component {
     )
   }
 }
+
+export default MovieListContainer(Login)

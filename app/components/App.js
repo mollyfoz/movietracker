@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Navigation from './Navigation/Navigation'
+import Login from './Login/Login'
 import MovieList from './MovieList/MovieList'
-import Favorites from './Favorites/Favorites'
-import MovieListContainer from '../containers/MovieListContainer'
-import LoginContainer from '../containers/LoginContainer'
+// import MovieListContainer from '../containers/MovieListContainer'
+// import LoginContainer from '../containers/LoginContainer'
 import AccountContainer from '../containers/AccountContainer'
 import './app.css'
 import { Route, NavLink, Link } from 'react-router-dom'
@@ -27,11 +26,10 @@ export default class App extends Component {
         </header>
         <div className='movie-container'>
           <Route exact path='/' component={ MovieList } />
-          <Route exact path='/login' component={ Navigation } />
+          <Route exact path='/login' component={ Login } />
+          <Route exact path='/favorites' render={ () => <MovieList favorites={true}/> } />
         </div>
       </div>
     )
   }
 }
-
-// <Route exact path='/favorites' component={ Favorites } />
