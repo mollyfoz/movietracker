@@ -25,20 +25,17 @@ export const login = (state = defaultState, action) => {
   }
 }
 
-// export const signOut = (state = defaultState, action) => {
-//   switch (action.type) {
-//     case 'SIGN_OUT':
-//       return Object.assign({}, {user: '', loggedIn: false})
-//
-//     default:
-//       return state
-//   }
-// }
-
 export const loginFail = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOGIN_FAIL':
     default:
       return state
+  }
+}
+
+export const handleFaves = (state = [], action) => {
+  switch(action.type) {
+    case 'SENT_FAVE':
+      return action.data
   }
 }
