@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { moviesFetchData, getFaves, checkUser, createUser, addFaves, removeFaves  } from '../actions/index'
+import { moviesFetchData, getFaves, checkUser, createUser, addFaves, deleteFaves  } from '../actions/index'
 import MovieList from '../components/MovieList/MovieList'
 import MovieCard from '../components/MovieCard/MovieCard'
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchData: (url) => dispatch(moviesFetchData(url)),
         fetchFaves: (id) => dispatch(getFaves(id)),
         addFaves: (movie) => dispatch(addFaves(movie)),
-        removeFaves: (movie) => dispatch(removeFaves(movie))
+        removeFaves: (id, movie_id) => dispatch(deleteFaves(id, movie_id))
     }
 }
 

@@ -38,8 +38,10 @@ export const handleFaves = (state = [], action) => {
   switch(action.type) {
     case 'SENT_FAVE':
       return action.movies
-      case 'FAVES_SUCCESS':
-        return action.favorites
+    case 'FAVES_SUCCESS':
+      return action.favorites
+    case 'FAVES_DELETE':
+      return state.filter(movie => movie.movie_id !== action.movie_id)
 
     default:
       return state

@@ -9,26 +9,13 @@ export const moviesFetchDataSuccess = (movies) => {
   }
 }
 
-// export const cleanData = (array) => {
-//   return array.map(movie => {
-//     return {
-//       movieId: movie.id,
-//       title: movie.title,
-//       date: movie.release_date,
-//       desc: movie.overview,
-//       score: movie.vote_average,
-//       image: movie.poster_path,
-//       fav: false,
-//     }
-//   })
-// }
-
 export const moviesFetchData = (url) => {
   return dispatch => {
     fetch(url)
       .then(response => response.json())
       .then(object => object.results)
-      .then(cleanArray => dispatch(moviesFetchDataSuccess(cleanArray)))
+      .then(array => array.map(movie => Object.assign(movie, {fav: null, movie_id: movie.id})))
+      .then(resultsArray => dispatch(moviesFetchDataSuccess(resultsArray)))
       .catch(error => console.log('ERROR', error))
   }
 }
@@ -98,7 +85,8 @@ export const getFaves = (id) => {
   return dispatch => {
     fetch(`api/users/${id}/favorites`)
     .then(data => data.json())
-    .then(receivedFaves => dispatch(fetchFaves(receivedFaves.data)))
+    .then(dataBase => dataBase.data.map(movie => Object.assign(movie, {fav: true})))
+    .then(receivedFaves => dispatch(fetchFaves(receivedFaves)))
     .catch(error => alert('I didnt get anything :(' ))
   }
 }
@@ -125,24 +113,21 @@ export const addFaves = (fave) => {
   }
 }
 
-export const removeFaves = (movies) => {
+export const removeFaves = (favorites) => {
   return {
     type: 'FAVES_DELETE',
-    movies
+    favorites
   }
 }
 
-export const deleteFaves = (fave) => {
+export const deleteFaves = (id, movie_id) => {
   return dispatch => {
-    fetch('api/users/:id/favorites/:movie_id', {
-      method: 'DELETE',
-      body: JSON.stringify(fave),
-      headers: {
-        'Content-Type' : 'application/json'
-      }
+    fetch(`api/users/${id}/favorites/${movie_id}`, {
+      method: 'DELETE'
     })
     .then(data => data.json())
     .then(removedFave => dispatch(removeFaves(removedFave)))
-    .catch(error => alert('I cant delete that, Dave'))
+    // .then(data => console.log('data: ', data))
+    .catch(error => alert('Are you sure you want to delete that?'))
   }
 }
