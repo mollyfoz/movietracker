@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Navigation from './Navigation'
+import App from './App'
 
-describe('Navigation component', () => {
+describe('App component', () => {
 
   beforeEach(() => {
-    const wrapper = mount(<Navigation />)
+    const wrapper = mount(<App />)
   })
 
   it('should exist', () => {
