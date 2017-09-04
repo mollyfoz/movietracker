@@ -1,9 +1,3 @@
 *{
   box-sizing: border-box;
 }
-
-.account {
-  position: absolute;
-  top: 0;
-  right:-65px;
-}

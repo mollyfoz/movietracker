@@ -18,9 +18,11 @@ export default class App extends Component {
     <h1 className='notflix'>Notflix</h1>
 
         <header>
+        <div className='link-wrapper'>
           <NavLink to='/' className='nav'> Home </NavLink>
           <NavLink to='/Favorites' className='nav'> Favorites </NavLink>
           <AccountContainer />
+        </div>
         </header>
         <div className='movie-container'>
           <Route exact path='/' component={ MovieList } />
