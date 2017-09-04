@@ -2,14 +2,14 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
  .movie-list-container {
-
-  position: absolute;
-  top: 200px;
   display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
-  grid-column-gap: 30px;
-  grid-row-gap: 20px;
-
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  min-width: 100%;
+  justify-items: center;
 }
