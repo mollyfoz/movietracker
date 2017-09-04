@@ -46,3 +46,27 @@ a:hover {
 .account {
   display: inline-block;
 }
+
+@media screen and (max-width: 1000px) {
+  a{
+    font-size: 25px;
+  }
+
+  .nav {
+    padding-right: 40px;
+  }
+
+  .notflix {
+    font-size: 90px;
+    top: 25px;
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .link-wrapper {
+    margin: auto;
+  }
+}
