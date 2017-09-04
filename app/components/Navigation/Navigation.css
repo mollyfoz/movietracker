@@ -9,10 +9,11 @@ body {
 header {
   height: 200px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav {
-  padding-right: 60px;
   z-index: 2000;
 }
 
@@ -26,21 +27,27 @@ a:hover {
   color: #FFF;
 }
 
+.notflix-wrapper {
+  height: 175px;
+  width: 50%;
+}
+
 .notflix {
   color: red;
-  position: absolute;
-  left: 100px;
-  top: 15px;
   font-size: 100px;
   font-family: 'Roboto', sans-serif;
   text-shadow: 2px 2px #707878;
+  padding-left: 40px;
 }
 
 .link-wrapper {
-  height: 40px;
-  position: absolute;
+  height: 175px;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
   top: 150px;
-  right: 75px;
+  right: 50px;*/
 }
 
 .account {
@@ -48,25 +55,43 @@ a:hover {
 }
 
 @media screen and (max-width: 1000px) {
-  a{
-    font-size: 25px;
-  }
-
-  .nav {
-    padding-right: 40px;
-  }
-
   .notflix {
-    font-size: 90px;
-    top: 25px;
+    font-size: 100px;
   }
+}
 
+@media screen and (max-width: 875px) {
+  a {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 750px) {
   header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 
   .link-wrapper {
+    margin:auto;
+    align-items: center;
+  }
+
+  .notflix-wrapper {
+    height: 200px;
+    width: 100%;
+    display: flex;
+  }
+
+  .notflix {
     margin: auto;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .link-wrapper {
+    width: 100%
   }
 }
