@@ -13,3 +13,21 @@ body {
   min-width: 100%;
   justify-items: center;
 }
+
+@media screen and (max-width: 1320px) {
+  .movie-list-container {
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .movie-list-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .movie-list-container {
+    grid-template-columns: 1fr;
+  }
+}
