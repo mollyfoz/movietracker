@@ -22,16 +22,16 @@ export default class App extends Component {
           </div>
           <div className='link-wrapper'>
             <NavLink to='/' className='nav'> Home </NavLink>
-            <NavLink to='/Favorites' className='nav'> Favorites </NavLink>
             <AccountContainer />
           </div>
         </header>
         <div className='movie-container'>
           <Route exact path='/' component={ MovieList } />
           <Route exact path='/login' component={ Login } />
-          <Route exact path='/favorites' render={ () => <MovieList favorites={true}/> } />
+          <Route exact path='/favorites' render={ () => <MovieList favorites={true} /> } />
         </div>
       </div>
     )
   }
 }
+// <NavLink to='/Favorites' className='nav'> Favorites </NavLink>
