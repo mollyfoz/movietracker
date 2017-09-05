@@ -21,6 +21,7 @@ a {
   color: red;
   text-decoration: none;
   font-size: 30px;
+  margin: 0 30px;
 }
 
 a:hover {
@@ -50,8 +51,15 @@ a:hover {
   right: 50px;*/
 }
 
-.account {
-  display: inline-block;
+.favorites-nav {
+  margin: 0;
+  position: absolute;
+  right: 21%;
+}
+@media screen and (max-width: 1200px) {
+  .link-wrapper {
+    justify-content: space-between;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -74,8 +82,9 @@ a:hover {
   }
 
   .link-wrapper {
-    margin:auto;
     align-items: center;
+    margin:auto;
+    width: 100%;
   }
 
   .notflix-wrapper {
@@ -88,10 +97,24 @@ a:hover {
     margin: auto;
     padding: 0;
   }
+
+  .favorites-nav {
+    right: 45%;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .link-wrapper {
     width: 100%
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .favorites-nav {
+    right: 40%;
+  }
+
+  a {
+    font-size: 20px;
   }
 }

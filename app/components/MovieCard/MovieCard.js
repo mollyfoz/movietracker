@@ -30,13 +30,15 @@ export const MovieCard = ({ movie_id, title, release_date, overview, vote_averag
   }
 
   let favedButton = fav ? 'Remove' : 'Favorite'
+  let buttonClass = fav ? 'remove button-link' : 'favorite button-link'
+
 
   return (
 
     <div
      className='movie-cards'>
      {
-       (user) && <button className='button-link' onClick={ () => {
+       (user) && <button className={buttonClass} onClick={ () => {
          checkFaves(movie) } }>{ favedButton }</button>
      }
 
