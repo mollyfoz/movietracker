@@ -15,7 +15,7 @@ const store = configureStore(devTools)
 ReactDOM.render(
   <Provider store={ store }>
     <BrowserRouter>
-      <App store={store} />
+      <App />
     </BrowserRouter>
   </Provider>,
   document.getElementById('main')

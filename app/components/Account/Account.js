@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom'
 const Account = (props) => {
 
   const loggedIn = props.loginInput.loggedIn
+  const logOut = (user) => {
+    localStorage.removeItem('user')
+    return this.props.signOutUser()
+
+  }
 
   return (
 
@@ -16,7 +21,7 @@ const Account = (props) => {
         </Link>
           <Link className='sign-out'
             to='/'
-            onClick={ () => {this.props.signOutUser()} }>
+            onClick={ () => logOut() }>
             Sign Out
           </Link>
         </div>

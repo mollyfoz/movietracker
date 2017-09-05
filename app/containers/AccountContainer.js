@@ -10,7 +10,7 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signOutUser: (user) => dispatch(signOut(user))
+        signOutUser: (user) => dispatch(signOut(user)),
     }
 }
 

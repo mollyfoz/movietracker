@@ -2,13 +2,26 @@ import React, { Component } from 'react';
 import Login from './Login/Login'
 import MovieList from './MovieList/MovieList'
 import AccountContainer from '../containers/AccountContainer'
+import MovieListContainer from '../containers/MovieListContainer'
 import './app.css'
 import { Route, NavLink, Link } from 'react-router-dom'
 
 
-export default class App extends Component {
+export class App extends Component {
   constructor() {
     super()
+  }
+
+  componentDidMount() {
+    let userInLocal = JSON.parse(localStorage.getItem('user'))
+    if(userInLocal.user.status === 'success') {
+      let localUser = {
+        name: userInLocal.user.data.name,
+        email: userInLocal.user.data.email,
+        password: userInLocal.user.data.password,
+      }
+      this.props.submitLogin(localUser)
+    }
   }
 
   render() {
@@ -35,3 +48,4 @@ export default class App extends Component {
   }
 }
 // <NavLink to='/Favorites' className='nav'> Favorites </NavLink>
+export default MovieListContainer(App)

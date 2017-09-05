@@ -40,6 +40,13 @@ export const signOut = (user) => {
   }
 }
 
+// export const signOut = (user) => {
+//   return dispatch => {
+//     localStorage.removeItem('user')
+//     dispatch(logOut(user))
+//   }
+// }
+
 export const createUser = (user) => {
   return dispatch => {
     fetch('api/users/new', {
