@@ -25,14 +25,6 @@ export const loginSuccess = (user) => {
   }
 }
 
-// export const loginFail = (user, loggedIn) => {
-//   return {
-//     type: 'LOGIN_FAIL',
-//     user,
-//     loggedIn: false
-//   }
-// }
-
 export const signOut = (user) => {
   return {
     type: 'SIGN_OUT',

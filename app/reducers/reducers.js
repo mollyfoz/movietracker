@@ -26,14 +26,6 @@ export const login = (state = defaultState, action) => {
   }
 }
 
-export const loginFail = (state = defaultState, action) => {
-  switch (action.type) {
-    case 'LOGIN_FAIL':
-    default:
-      return state
-  }
-}
-
 export const handleFaves = (state = [], action) => {
   switch(action.type) {
     case 'SENT_FAVE':
