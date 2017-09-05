@@ -5,7 +5,6 @@ import MovieListContainer from '../../containers/MovieListContainer'
 export class MovieList extends Component {
 
   componentDidMount() {
-    console.log('mounted')
    this.props.fetchData(`https://api.themoviedb.org/3/movie/now_playing?api_key=e9ab90094f9090f5f4725a3515a0915a&language=en-US&page=1`)
 
    if(this.props.loginInput.loggedIn) {
