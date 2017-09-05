@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Account = (props) => {
 
   const loggedIn = props.loginInput.loggedIn
-  const logOut = (user) => {
+  const logOut = () => {
     localStorage.removeItem('user')
     return this.props.signOutUser()
 

@@ -13,18 +13,30 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    if(!this.props.loginInput.loggedIn){
+      this.localStorageChecker()
+    } else {
+      return this.props.fetchFaves(this.props.loginInput.user.data.id)
+    }
+  }
+
+  localStorageChecker() {
     let userInLocal = JSON.parse(localStorage.getItem('user'))
-    if(userInLocal.user.status === 'success') {
+    if(userInLocal) {
       let localUser = {
         name: userInLocal.user.data.name,
         email: userInLocal.user.data.email,
         password: userInLocal.user.data.password,
       }
       this.props.submitLogin(localUser)
-    }
+      }
   }
 
+
   render() {
+    if(this.props.loginInput.loggedIn) {
+      this.props.fetchFaves(this.props.loginInput.user.data.id)
+    }
 
     return (
       <div>
