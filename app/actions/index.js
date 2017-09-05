@@ -1,7 +1,5 @@
 import { Route, Link } from 'react-router-dom';
 
-
-
 export const moviesFetchDataSuccess = (movies) => {
   return {
     type: 'MOVIES_FETCH_DATA_SUCCESS',
@@ -27,13 +25,13 @@ export const loginSuccess = (user) => {
   }
 }
 
-export const loginFail = (user, loggedIn) => {
-  return {
-    type: 'LOGIN_FAIL',
-    user,
-    loggedIn: false
-  }
-}
+// export const loginFail = (user, loggedIn) => {
+//   return {
+//     type: 'LOGIN_FAIL',
+//     user,
+//     loggedIn: false
+//   }
+// }
 
 export const signOut = (user) => {
   return {
@@ -127,7 +125,6 @@ export const deleteFaves = (id, movie_id) => {
     })
     .then(data => data.json())
     .then(removedFave => dispatch(removeFaves(removedFave)))
-    // .then(data => console.log('data: ', data))
     .catch(error => alert('Are you sure you want to delete that?'))
   }
 }
