@@ -61,7 +61,8 @@
   border: 1px solid red;
   border-radius: 10px;
   right: 20px;
-  font-size: 14px;
+  font-size: 12px;
+  outline: none;
   position: absolute;
   text-align: center;
   top: 20px;
@@ -71,9 +72,17 @@
 .favorite-button:hover, .button-link:hover {
   box-shadow: 0 0 8px red;
   color: red;
+  outline: none;
 }
 
 .favorite-button:active, .button-link:active {
   box-shadow: 0 2px #666;
+  outline: none;
   transform: translateY(2px);
+}
+
+.remove {
+  background-color: red;
+  color: white;
+  outline: none;
 }

@@ -6,11 +6,11 @@ const Account = (props) => {
 
 
   return (
-    <div className='account nav'>
+    <div >
       {
         (props.loginInput.loggedIn) &&
-        <div>
-        <Link className='nav' to='/favorites'>
+        <div className='account-wrapper'>
+        <Link className='favorites-nav' to='/favorites'>
         Favorites
         </Link>
           <Link className='sign-out'
