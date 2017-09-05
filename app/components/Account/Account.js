@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 
 const Account = (props) => {
 
-
+  const loggedIn = props.loginInput.loggedIn
 
   return (
+
     <div >
       {
-        (props.loginInput.loggedIn) &&
+        (loggedIn) &&
         <div className='account-wrapper'>
         <Link className='favorites-nav' to='/favorites'>
         Favorites
@@ -22,7 +23,7 @@ const Account = (props) => {
       }
 
       {
-        (!props.loginInput.loggedIn) &&
+        (!loggedIn) &&
         <Link className='login' to='/login'>
           Log In
         </Link>

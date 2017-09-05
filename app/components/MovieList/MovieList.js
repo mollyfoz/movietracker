@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import MovieCard from '../MovieCard/MovieCard'
-import MovieCardContainer from '../../containers/MovieCardContainer'
 import MovieListContainer from '../../containers/MovieListContainer'
-// import LoginContainer from '../../containers/LoginContainer'
-
 
 export class MovieList extends Component {
-
 
   componentDidMount() {
     console.log('mounted')
