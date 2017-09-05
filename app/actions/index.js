@@ -44,7 +44,7 @@ export const createUser = (user) => {
     .then(data => data.json())
     .then(response => response.status !== 'success' ? alert('Email already in use') : response.ok)
     .then(validUser => dispatch(loginSuccess(user)))
-    .catch(error => console.log('you have fucked up now', error))
+    .catch(error => console.log('ERROR', error))
   }
 }
 

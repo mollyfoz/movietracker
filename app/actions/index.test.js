@@ -1,5 +1,6 @@
 import React from 'react'
 import * as actions from '../actions'
+import fetchMock from 'fetch-mock'
 
 describe('actions', () => {
 
@@ -101,5 +102,43 @@ describe('actions', () => {
    }
    expect(actions.removeFaves(favorites)).toEqual(expectedAction)
   })
+})
 
+describe('fetch movies from API', () => {
+
+  it.skip('returns an array of objects on moviesFetchData', () => {
+    fetchMock.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=e9ab90094f9090f5f4725a3515a0915a&language=en-US&page=1`)
+    .then(() => {
+      expect()
+    })
+  })
+})
+
+describe('fetch to create a user', () => {
+
+  let response
+
+  beforeEach(() => {
+    fetchMock.get('/api/users/new', {
+      status: 200,
+      body: response
+    })
+  })
+
+  afterEach(() => {
+    fetchMock.restore()
+  })
+
+  it.skip('should create a new user', () => {
+    const mockData = {
+       name: 'Dan',
+       email: 'Dan@yaboi.com',
+       password: 'dan'
+    }
+    const response = {
+      user: { name: 'Dan', id: 1, email: 'Dan@yaboi.com', password: 'dan' },
+      type: 'LOGIN_SUCCESS'
+    }
+    expect(actions.createUser(mockData)).toEqual(response)
+  })
 })
